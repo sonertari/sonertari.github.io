@@ -1,0 +1,30 @@
+# Site settings
+title: Unified Network Security
+email: sonertari@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  UTMFW is a powerful open-source next-generation firewall for securing your network.
+
+baseurl: "" # the subpath of site, e.g. /blog
+url: "https://sonertari.github.io" # the base hostname & protocol for site, e.g. http://example.com
+github_username: sonertari
+twitter_username: sonertari
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sass-converter
+
+# Exclude from processing.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

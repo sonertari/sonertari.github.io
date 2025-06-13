@@ -1,0 +1,40 @@
+---
+# Front matter for Jekyll to process this as SCSS
+---
+
+/*
+ * UTMFW
+ * Copyright (C) 2025 Soner Tari <sonertari@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+ /* Custom CSS to ensure Inter font is applied and for minor overrides */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Light gray background */
+}
+/* Specific gradient for hero section in header */
+.hero-background {
+    background: linear-gradient(to right, #0a2d52, #1a4d7d);
+}
+/* Style for active navigation link (optional, for demonstration) */
+.nav-link.active {
+    font-weight: 600;
+    color: #d1d5db; /* A lighter gray for active */
+}
+/* Hide scrollbar for sections that might not need it visually on desktop */
+section {
+    overflow: hidden;
+}

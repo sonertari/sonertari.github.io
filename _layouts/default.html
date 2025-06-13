@@ -1,0 +1,166 @@
+<!--
+/*
+ * UTMFW
+ * Copyright (C) 2025 Soner Tari <sonertari@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91X40LL6ZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-91X40LL6ZK');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <!-- Do NOT load Tailwind CSS from CDN in production -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- Load Inter font from Google Fonts for a clean, modern look -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- Font Awesome for icons (e.g., social media) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link to main SCSS stylesheet -->
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+    <!-- Link to purged Tailwind CSS -->
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+<body class="text-gray-800 antialiased">
+    <!-- Header Section -->
+    <header class="bg-gray-900 text-white shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="{{ site.baseurl }}/" class="flex items-center space-x-2 text-2xl font-bold text-white hover:text-blue-400 transition duration-300">
+                <i class="fas fa-shield-alt text-blue-500"></i>
+                <span>UTMFW</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- Navigation - Desktop -->
+            <nav class="hidden md:flex space-x-6 text-lg">
+                <a href="#home" class="nav-link hover:text-blue-400 transition duration-300">Home</a>
+                <a href="#what-is-utmfw" class="nav-link hover:text-blue-400 transition duration-300">What is UTMFW</a>
+                <a href="#screenshots" class="nav-link hover:text-blue-400 transition duration-300">Screenshots</a>
+                <a href="#features" class="nav-link hover:text-blue-400 transition duration-300">Features</a>
+                <a href="#sslproxy" class="nav-link hover:text-blue-400 transition duration-300">SSLproxy</a>
+                <a href="#sponsor" class="nav-link hover:text-blue-400 transition duration-300">Sponsor</a>
+                <a href="#download" class="nav-link hover:text-blue-400 transition duration-300">Download</a>
+                <a href="#roadmap-releases" class="nav-link hover:text-blue-400 transition duration-300">Roadmap & Releases</a>
+            </nav>
+
+            <!-- ComixWall - Desktop -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://sites.google.com/site/comixwall" class="text-white hover:text-blue-400 transition duration-300">
+                    <i class="fas fa-shield-alt text-xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block text-white hover:text-blue-400 py-2">Home</a>
+            <a href="#what-is-utmfw" class="block text-white hover:text-blue-400 py-2">What is UTMFW</a>
+            <a href="#screenshots" class="block text-white hover:text-blue-400 py-2">Screenshots</a>
+            <a href="#features" class="block text-white hover:text-blue-400 py-2">Features</a>
+            <a href="#sslproxy" class="block text-white hover:text-blue-400 py-2">SSLproxy</a>
+            <a href="#sponsor" class="block text-white hover:text-blue-400 py-2">Sponsor</a>
+            <a href="#download" class="block text-white hover:text-blue-400 py-2">Download</a>
+            <a href="#roadmap-releases" class="block text-white hover:text-blue-400 py-2">Roadmap & Releases</a>
+            <div class="flex justify-center space-x-6 pt-4">
+                <a href="https://sites.google.com/site/comixwall" class="text-white hover:text-blue-400"><i class="fas fa-shield-alt text-xl"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16"> <!-- Padding-top to account for fixed header -->
+        <!-- This is where the content from index.md (or other pages) will be injected -->
+        {{ content }}
+    </main>
+
+    <!-- Fullscreen Modal for Zoomable Images -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[9999] hidden">
+        <div class="relative max-w-5xl w-full mx-auto p-4">
+            <button id="close-modal" class="absolute top-4 right-4 text-white text-3xl font-bold cursor-pointer z-50">
+                &times;
+            </button>
+            <div id="zoomed-image-container" class="w-full h-[80vh] overflow-hidden cursor-move relative flex items-center justify-center bg-gray-900 rounded-lg" style="touch-action: none;">
+                <img id="zoomed-image" src="" alt="Zoomed Image" class="max-w-full max-h-full object-contain transform origin-center transition-transform duration-100 ease-out">
+            </div>
+            <div class="flex justify-center space-x-4 mt-4">
+                <button id="zoom-in" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300">
+                    <i class="fas fa-search-plus"></i> Zoom In
+                </button>
+                <button id="zoom-out" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300">
+                    <i class="fas fa-search-minus"></i> Zoom Out
+                </button>
+                <button id="reset-zoom" class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full shadow-md transition duration-300">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- About UTMFW -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">About UTMFW</h3>
+                <p class="text-gray-400">
+                    UTMFW is the <strong>only FOSS next-generation UTM firewall built specifically for OpenBSD</strong>. It provides comprehensive threat management, including SSL inspection, IDS/IPS, and advanced filtering, offering unparalleled insights and control over your network security.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://github.com/sonertari/UTMFW" class="text-gray-400 hover:text-blue-400 transition duration-300">GitHub Repository</a></li>
+                    <li><a href="https://github.com/sonertari/UTMFW/issues" class="text-gray-400 hover:text-blue-400 transition duration-300">Get Involved</a></li>
+                    <li><a href="https://sites.google.com/site/comixwall" class="text-gray-400 hover:text-blue-400 transition duration-300">ComixWall</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Social -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                <p class="text-gray-400 mb-4">Stay updated and join the conversation!</p>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="https://github.com/sonertari/UTMFW" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/sonertari" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/sonertari" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://infosec.exchange/@sonertari" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fab fa-mastodon"></i></a>
+                    <a href="https://sites.google.com/site/comixwall" class="text-gray-400 hover:text-blue-400 transition duration-300"><i class="fas fa-shield-alt"></i></a>
+                </div>
+                <p class="text-gray-400 text-sm mt-6">Copyright &copy; {{ site.time | date: "%Y" }} Soner Tari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to custom JavaScript -->
+    <script src="{{ "/assets/js/script.js" | relative_url }}"></script>
+</body>
+</html>

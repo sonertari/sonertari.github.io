@@ -1,0 +1,31 @@
+{
+  "name": "sonertari.github.io",
+  "version": "1.0.0",
+  "description": "The source code of github.io web site for UTMFW, SSLproxy, and related projects.",
+  "main": "index.js",
+  "scripts": {
+    "tailwind:build": "tailwindcss -i ./assets/input/tailwind.css -o ./assets/css/main.css --minify",
+    "tailwind:watch": "tailwindcss -i ./assets/input/tailwind.css -o ./assets/css/main.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sonertari@github.com/sonertari/sonertari.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sonertari/sonertari.github.io/issues"
+  },
+  "homepage": "https://github.com/sonertari/sonertari.github.io#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.5",
+    "tailwindcss": "^4.1.10"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.10"
+  }
+}

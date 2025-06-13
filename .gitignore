@@ -1,0 +1,29 @@
+# Jekyll build output
+_site/
+
+# Dependency directories
+.sass-cache/
+.jekyll-cache/
+.bundle/
+vendor/bundle/
+vendor/cache/
+vendor/gems/
+vendor/ruby/
+
+# Node.js dependencies (for a local Tailwind build process to be added later)
+node_modules/
+package-lock.json # If using npm
+yarn.lock         # If using Yarn
+
+# Common editor/IDE files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+._*
+
+# Logs and temporary files
+*.log
+.jekyll-metadata
+
